@@ -71,6 +71,29 @@ body {
   animation-delay: 0.4s;
 }
 
+.work-card {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.work-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.work-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.work-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.role-header {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.1s;
+}
+
 .revealed {
   opacity: 1 !important;
 }
@@ -373,6 +396,72 @@ h2 {
   color: var(--accent);
 }
 
+.role-section {
+  margin-bottom: 3rem;
+}
+
+.role-header {
+  margin-bottom: 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.role-header h3 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--text);
+}
+
+.role-header p {
+  color: var(--muted);
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.role-skills {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.work-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.work-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.work-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.1);
+}
+
+.work-card h4 {
+  margin: 0 0 0.75rem 0;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.work-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.work-card:hover p {
+  color: var(--text);
+}
+
 .section-heading {
   margin-bottom: 2rem;
   display: grid;
@@ -483,7 +572,8 @@ h2 {
   .hero-inner,
   .about-grid,
   .contact-inner,
-  .project-grid {
+  .project-grid,
+  .work-examples {
     grid-template-columns: 1fr;
   }
 

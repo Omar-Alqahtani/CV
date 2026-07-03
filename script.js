@@ -19,11 +19,11 @@ links.forEach((link) => {
   });
 });
 
-// Scroll reveal animations
-const revealElements = document.querySelectorAll('.section, .project-card, .hero-card, .hero-image');
+// Scroll reveal animations for cards
+const revealElements = document.querySelectorAll('.section, .project-card, .hero-card, .hero-image, .work-card, .role-header');
 const observerOptions = {
   threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
+  rootMargin: '0px 0px -30px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
