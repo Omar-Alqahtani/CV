@@ -29,6 +29,62 @@ body {
   color: var(--text);
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.section,
+.project-card,
+.hero-card,
+.hero-image {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.section {
+  animation-delay: 0.1s;
+}
+
+.project-card {
+  animation-delay: 0.2s;
+}
+
+.project-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.revealed {
+  opacity: 1 !important;
+}
+
+.site-header {
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(13, 17, 24, 0.98);
+  border-bottom-color: rgba(148, 163, 184, 0.16);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -37,6 +93,11 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent);
 }
 
 button,
@@ -83,11 +144,27 @@ textarea {
 
 .site-nav a {
   color: var(--muted);
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
 }
 
 .site-nav a:hover {
   color: var(--text);
+}
+
+.site-nav a:hover::after {
+  width: 100%;
 }
 
 .nav-toggle {
@@ -171,11 +248,32 @@ h2 {
   justify-content: center;
   border-radius: 999px;
   padding: 0.95rem 1.7rem;
-  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
 }
 
 .button:hover {
-  transform: translateY(-1px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25);
+}
+
+.button:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .button-primary {
@@ -186,6 +284,12 @@ h2 {
 .button-secondary {
   border: 1px solid rgba(148, 163, 184, 0.32);
   color: var(--text);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.button-secondary:hover {
+  border-color: var(--accent);
+  background: rgba(56, 189, 248, 0.08);
 }
 
 .hero-card,
@@ -209,6 +313,12 @@ h2 {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   min-height: 320px;
+  transition: all 0.4s ease;
+}
+
+.hero-image:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.15);
 }
 
 .hero-image img {
@@ -216,6 +326,11 @@ h2 {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.6s ease;
+}
+
+.hero-image:hover img {
+  transform: scale(1.05);
 }
 
 .hero-card {
@@ -238,14 +353,24 @@ h2 {
 
 .project-card {
   border-left: 4px solid rgba(56, 189, 248, 0.35);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.4s ease, 
+              border-left-color 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(56, 189, 248, 0.2);
+  border-left-color: var(--accent);
 }
 
 .project-card p {
   margin: 0.75rem 0 0;
+  transition: color 0.3s ease;
 }
 
-.project-card h3 {
-  margin-bottom: 0.5rem;
+.project-card:hover p {
+  color: var(--accent);
 }
 
 .section-heading {
@@ -323,6 +448,15 @@ h2 {
   border-radius: 999px;
   padding: 0.9rem 1rem;
   text-align: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+}
+
+.skills-grid span:hover {
+  background: rgba(56, 189, 248, 0.25);
+  border-color: var(--accent);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 8px 16px rgba(56, 189, 248, 0.15);
 }
 
 .contact-inner {
