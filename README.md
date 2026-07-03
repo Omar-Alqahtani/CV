@@ -7,7 +7,7 @@ This repository contains a portfolio website and resume for Omar Alqahtani.
 - `index.html` — portfolio page built from resume content
 - `styles.css` — responsive styling and layout
 - `script.js` — mobile navigation toggle
-- `Omar-Alqahtani-Resume-2026.pdf` — resume PDF
+- `data/Omar-Alqahtani-Resume-2026.pdf` — resume PDF
 
 ## Run locally
 
