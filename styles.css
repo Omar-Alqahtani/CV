@@ -333,7 +333,7 @@ h2 {
   justify-content: center;
   border-radius: var(--radius);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.03);
+  background: transparent;
   border: 1px solid var(--border);
   min-height: 320px;
   transition: all 0.4s ease;
