@@ -6,8 +6,23 @@ This repository contains a portfolio website and resume for Omar Alqahtani.
 
 - `index.html` — portfolio page built from resume content
 - `styles.css` — responsive styling and layout
-- `script.js` — mobile navigation toggle
+- `script.js` — mobile navigation toggle and scroll animations
 - `data/Omar-Alqahtani-Resume-2026.pdf` — resume PDF
+- `data/Omar-Alqahtani.JPG` — profile picture
+
+## Deployment
+
+The portfolio is automatically deployed to GitHub Pages on every push to `main` via the GitHub Actions workflow in `.github/workflows/deploy.yml`.
+
+**Live site:** https://omar-alqahtani.github.io/CV/
+
+## Features
+
+- Responsive design with smooth scroll animations
+- Profile picture and resume download
+- Experience section with detailed work examples
+- Skills, certifications, and education highlights
+- Dynamic hover interactions and staggered card reveals
 
 ## Run locally
 
