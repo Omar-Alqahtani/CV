@@ -360,11 +360,19 @@ h2 {
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
+  justify-content: flex-start;
+  margin-top: 1.25rem;
 }
 
-.elementor-button-wrapper,
-.hero-actions {
-  width: 100%;
+.elementor-button-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
@@ -373,7 +381,7 @@ h2 {
   position: relative;
   overflow: hidden;
   font-weight: 600;
-  min-width: 170px;
+  min-width: 150px;
 }
 
 .button::before {
