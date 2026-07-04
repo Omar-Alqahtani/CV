@@ -52,7 +52,7 @@ textarea {
 }
 
 .container {
-  width: min(1120px, calc(100% - 2rem));
+  width: min(1200px, calc(100% - 2rem));
   margin: 0 auto;
 }
 
@@ -184,11 +184,12 @@ textarea {
 .elementor-widget-wrap {
   width: 100%;
   display: grid;
-  gap: 1.4rem;
+  gap: 1.75rem;
 }
 
 .elementor-widget-container {
   width: 100%;
+  padding: 0.2rem 0;
 }
 
 .elementor-widget-container + .elementor-widget-container {
@@ -218,6 +219,56 @@ textarea {
   z-index: -1;
 }
 
+.elementor-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.elementor-column,
+.elementor-inner-column {
+  position: relative;
+  min-height: 1px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.elementor-col-100 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.elementor-col-50 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.elementor-col-66 {
+  flex: 0 0 66.66667%;
+  max-width: 66.66667%;
+}
+
+.elementor-col-33 {
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+}
+
+.elementor-col-25 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.elementor-widget__width-auto,
+.elementor-widget__width-initial {
+  width: auto;
+}
+
+.elementor-section.elementor-top-section {
+  padding: 5rem 0;
+}
+
 .elementor-section.section-about,
 .elementor-section.section-skills,
 .elementor-section.section-projects,
@@ -228,10 +279,21 @@ textarea {
 }
 
 .hero-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(320px, 1fr);
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.2rem;
   align-items: center;
+}
+
+.hero-inner > .elementor-column {
+  min-width: min(100%, 440px);
+}
+
+.about-grid,
+.contact-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .eyebrow {
@@ -240,6 +302,23 @@ textarea {
   font-size: 0.78rem;
   color: var(--accent);
   margin: 0 0 1rem;
+}
+
+.section-heading {
+  max-width: 720px;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.section-heading h2 {
+  max-width: 95%;
+}
+
+.hero-copy {
+  max-width: 42rem;
+  margin: 0 0 2rem;
+  color: var(--muted);
+  font-size: 1.05rem;
 }
 
 h1,
@@ -280,10 +359,12 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  align-items: center;
 }
 
-.button {
-  display: inline-flex;
+.elementor-button-wrapper,
+.hero-actions {
+  width: 100%;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
@@ -413,14 +494,35 @@ h2 {
 }
 
 .about-grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
-  grid-template-columns: 1.6fr 1fr;
+  align-items: flex-start;
+}
+
+.about-grid .elementor-col-33,
+.about-grid .elementor-col-50,
+.about-grid .elementor-col-66,
+.contact-inner .elementor-col-50 {
+  padding: 0.5rem;
 }
 
 .about-details {
   display: grid;
   gap: 1.2rem;
+}
+
+.about-details div {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 18px;
+  padding: 1.35rem 1.5rem;
+}
+
+.about-details strong {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--accent);
 }
 
 .about-details div {
@@ -539,10 +641,21 @@ h2 {
 @media (max-width: 980px) {
   .hero-inner,
   .about-grid,
-  .contact-inner,
+  .contact-inner {
+    flex-direction: column;
+  }
+
   .work-examples,
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+
+  .elementor-col-50,
+  .elementor-col-66,
+  .elementor-col-33,
+  .elementor-col-25 {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 
